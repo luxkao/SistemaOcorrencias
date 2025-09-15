@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import api from '../services/api';
 import type {Ocorrencia, Professor, Estudante} from '../types/entities';
+import { useNavigate } from 'react-router-dom';
 import './HomePage.css';
 
 const HomePage: React.FC = () => {
@@ -8,7 +9,7 @@ const HomePage: React.FC = () => {
     const [ocorrencias, setOcorrencias] = useState<Ocorrencia[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
-
+    const navigate = useNavigate();
     const [professores, setProfessores] = useState<Professor[]>([]);
     const [estudantes, setEstudantes] = useState<Estudante[]>([]);
 
@@ -71,7 +72,12 @@ const HomePage: React.FC = () => {
 
     return (
         <div className="ocorrencia-container">
-            <h2>Ocorrências Registradas</h2>
+            <div className="page-header">
+                <h2>Ocorrências Registradas</h2>
+                <button className="add-button" onClick={() => navigate('/ocorrencias/nova')}>
+                    + Registrar Ocorrência
+                </button>
+            </div>
 
             <div className="filters">
                 <select onChange={handleProfessorChange} value={selectedProfessor}>

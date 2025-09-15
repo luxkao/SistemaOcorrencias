@@ -1,0 +1,94 @@
+.form-page {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 20px;
+}
+
+.form-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-top: 0;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-container input {
+    padding: 12px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-container input:disabled {
+    background-color: #eee;
+    cursor: not-allowed;
+}
+.form-container h2 {
+    color: black;
+}
+.form-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.form-buttons button {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+}
+
+.form-buttons button[type="button"] {
+    background-color: #6c757d;
+}
+
+.list-container {
+    margin-top: 20px;
+}
+
+.item-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.item-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.item-list li:last-child {
+    border-bottom: none;
+}
+
+.item-buttons button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.item-buttons .delete-button {
+    background-color: #dc3545;
+    color: white;
+    border-color: #dc3545;
+}

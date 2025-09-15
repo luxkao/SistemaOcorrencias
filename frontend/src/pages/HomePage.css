@@ -69,3 +69,30 @@
     border-radius: 5px;
     min-width: 250px;
 }
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.page-header h2 {
+    margin: 0;
+}
+
+.add-button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.add-button:hover {
+    background-color: #218838;
+}

@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import java.util.Random;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -27,6 +28,9 @@ public class ProfessorRepository {
     };
 
     public Professor save(Professor professor) {
+        String codigoGerado = "PROF-" + (100000 + new Random().nextInt(900000));
+        professor.setCodigo(codigoGerado);
+
         String sql = "INSERT INTO professores (codigo, nome, curso, materia_lecionada) VALUES (?, ?, ?, ?)";
         jdbcTemplate.update(sql, professor.getCodigo(), professor.getNome(), professor.getCurso(), professor.getMateriaLecionada());
         return professor;

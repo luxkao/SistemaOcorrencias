@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,7 +25,26 @@ public class EstudanteRepository {
         return estudante;
     };
 
+    private String gerarProximaMatricula() {
+        int anoAtual = Calendar.getInstance().get(Calendar.YEAR);
+        String prefixo = String.valueOf(anoAtual);
+
+        String sqlBusca = "SELECT MAX(matricula) FROM estudantes WHERE matricula LIKE ?";
+        String ultimaMatricula = jdbcTemplate.queryForObject(sqlBusca, new Object[]{prefixo + "%"}, String.class);
+
+        int proximoSequencial = 1;
+        if (ultimaMatricula != null) {
+            int ultimoSequencial = Integer.parseInt(ultimaMatricula.substring(prefixo.length()));
+            proximoSequencial = ultimoSequencial + 1;
+        }
+
+        return prefixo + String.format("%03d", proximoSequencial);
+    }
+
     public Estudante save(Estudante estudante) {
+        String novaMatricula = gerarProximaMatricula();
+        estudante.setMatricula(novaMatricula);
+
         String sql = "INSERT INTO estudantes (matricula, nome, curso, ano_entrada) VALUES (?, ?, ?, ?)";
         jdbcTemplate.update(sql, estudante.getMatricula(), estudante.getNome(), estudante.getCurso(), estudante.getAnoEntrada());
         return estudante;
