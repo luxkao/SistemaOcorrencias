@@ -58,7 +58,10 @@ Siga os passos abaixo para configurar e rodar a aplicação em seu ambiente loca
     ```
     Isso irá iniciar um container MySQL na porta `3306`, com o banco de dados e usuário já configurados.
 
-3.  **Execute o Backend (API Spring Boot)**
+3. **Crie as Tabelas do Banco de Dados**
+   Conecte-se ao banco de dados escola_ocorrencias_db e execute o script encontrado em SistemaOcorrencias/backend/src/main/resources/sql/schema.sql para criar todas as tabelas necessárias.
+
+4.  **Execute o Backend (API Spring Boot)**
     Abra um **novo terminal** e navegue até a pasta do backend para iniciar a API.
     ```bash
     cd backend
@@ -66,7 +69,7 @@ Siga os passos abaixo para configurar e rodar a aplicação em seu ambiente loca
     ```
     O servidor da API estará rodando em `http://localhost:8080`.
 
-4.  **Execute o Frontend (Aplicação React)**
+5.  **Execute o Frontend (Aplicação React)**
     Abra um **terceiro terminal** e navegue até a pasta do frontend para instalar as dependências e iniciar a aplicação.
     ```bash
     cd frontend
