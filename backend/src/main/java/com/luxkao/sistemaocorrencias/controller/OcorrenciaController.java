@@ -24,7 +24,7 @@ public class OcorrenciaController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    // Endpoint principal que lida com listagem e filtros
+
     @GetMapping
     public List<Ocorrencia> getOcorrencias(
             @RequestParam(required = false) String professorId,
